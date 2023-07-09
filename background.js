@@ -10,6 +10,7 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
 });
 
 function runScript() {
+    console.log('Script is running');
     const overlay = document.createElement("div");
 
     const css = `
