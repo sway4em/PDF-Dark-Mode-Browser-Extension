@@ -10,21 +10,27 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
 });
 
 function runScript() {
-    console.log('Script is running');
-    const overlay = document.createElement("div");
+    console.log('Toggling dark mode');
+    let overlay = document.getElementById('dark-mode-overlay');
+    if (overlay) {
+        overlay.remove();
+    } else {
+        overlay = document.createElement("div");
+        overlay.id = 'dark-mode-overlay';
 
-    const css = `
-        position: fixed;
-        pointer-events: none;
-        top: 0;
-        left: 0;
-        width: 100vw;
-        height: 100vh;
-        background-color: white;
-        mix-blend-mode: difference;
-        z-index: 1;
-    `
-    overlay.setAttribute("style", css);
+        const css = `
+            position: fixed;
+            pointer-events: none;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background-color: white;
+            mix-blend-mode: difference;
+            z-index: 1;
+        `
+        overlay.setAttribute("style", css);
 
-    document.body.appendChild(overlay);
+        document.body.appendChild(overlay);
+    }
 }
