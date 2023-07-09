@@ -3,11 +3,17 @@
 
 <head>
     <style>
+        .switch-container {
+            display: flex;
+            align-items: center;
+        }
+
         .switch {
             position: relative;
             display: inline-block;
             width: 60px;
             height: 34px;
+            margin: 0 10px;
         }
 
         .switch input {
@@ -62,31 +68,18 @@
         .slider.round:before {
             border-radius: 50%;
         }
-
-        .icon {
-            position: absolute;
-            top: -5px;
-            width: 20px;
-            height: auto
-        }
-
-        .icon.light {
-            left: -30px
-        }
-
-        .icon.dark {
-            right: -30px
-        }
     </style>
 </head>
 
 <body>
-    <label class="switch">
-        <input type="checkbox" id="toggle-dark-mode">
-        <span class="slider round"></span>
-    </label>
-    <img src="https://img.icons8.com/ios-glyphs/30/000000/sun--v1.png" class="icon light" />
-    <img src="https://img.icons8.com/ios-glyphs/30/000000/bright-moon.png" class="icon dark" />
+    <div class="switch-container">
+        <img src="https://img.icons8.com/ios/50/000000/sun--v1.png" />
+        <label class="switch">
+            <input type="checkbox" id="toggle-dark-mode">
+            <span class="slider round"></span>
+        </label>
+        <img src="https://img.icons8.com/ios-glyphs/30/000000/bright-moon.png" />
+    </div>
     <script src="popup.js"></script>
 </body>
 
